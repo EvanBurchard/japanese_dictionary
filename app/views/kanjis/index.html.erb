@@ -1,0 +1,28 @@
+<h1>Listing kanjis</h1>
+
+<table>
+  <tr>
+    <th>Character</th>
+    <th>Frequency</th>
+    <th>Stroke count</th>
+    <th>Jlpt</th>
+    <th>Grade</th>
+  </tr>
+
+<% for kanji in @kanjis %>
+  <tr>
+    <td><%=h kanji.character %></td>
+    <td><%=h kanji.frequency %></td>
+    <td><%=h kanji.stroke_count %></td>
+    <td><%=h kanji.jlpt %></td>
+    <td><%=h kanji.grade %></td>
+    <td><%= link_to 'Show', kanji %></td>
+    <td><%= link_to 'Edit', edit_kanji_path(kanji) %></td>
+    <td><%= link_to 'Destroy', kanji, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New kanji', new_kanji_path %>

@@ -1,0 +1,24 @@
+<h1>Listing jumps</h1>
+
+<table>
+  <tr>
+    <th>Jump quotient</th>
+    <th>Kanji reading</th>
+    <th>Kanji</th>
+  </tr>
+
+<% for jump in @jumps %>
+  <tr>
+    <td><%=h jump.jump_quotient %></td>
+    <td><%=h jump.kanji_reading %></td>
+    <td><%=h jump.kanji %></td>
+    <td><%= link_to 'Show', jump %></td>
+    <td><%= link_to 'Edit', edit_jump_path(jump) %></td>
+    <td><%= link_to 'Destroy', jump, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New jump', new_jump_path %>

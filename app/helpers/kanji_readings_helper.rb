@@ -1,0 +1,2 @@
+module KanjiReadingsHelper
+end

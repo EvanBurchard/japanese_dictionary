@@ -1,0 +1,20 @@
+<h1>Editing kana_reading</h1>
+
+<% form_for(@kana_reading) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :reading %><br />
+    <%= f.text_field :reading %>
+  </p>
+  <p>
+    <%= f.label :word %><br />
+    <%= f.text_field :word %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @kana_reading %> |
+<%= link_to 'Back', kana_readings_path %>

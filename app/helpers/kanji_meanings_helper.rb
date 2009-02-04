@@ -1,0 +1,2 @@
+module KanjiMeaningsHelper
+end

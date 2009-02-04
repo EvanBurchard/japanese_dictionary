@@ -1,0 +1,22 @@
+<h1>Listing kana_readings</h1>
+
+<table>
+  <tr>
+    <th>Reading</th>
+    <th>Word</th>
+  </tr>
+
+<% for kana_reading in @kana_readings %>
+  <tr>
+    <td><%=h kana_reading.reading %></td>
+    <td><%=h kana_reading.word %></td>
+    <td><%= link_to 'Show', kana_reading %></td>
+    <td><%= link_to 'Edit', edit_kana_reading_path(kana_reading) %></td>
+    <td><%= link_to 'Destroy', kana_reading, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New kana_reading', new_kana_reading_path %>

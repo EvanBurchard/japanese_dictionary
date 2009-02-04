@@ -1,0 +1,22 @@
+<h1>Listing kanji_readings</h1>
+
+<table>
+  <tr>
+    <th>Reading</th>
+    <th>Word</th>
+  </tr>
+
+<% for kanji_reading in @kanji_readings %>
+  <tr>
+    <td><%=h kanji_reading.reading %></td>
+    <td><%=h kanji_reading.word %></td>
+    <td><%= link_to 'Show', kanji_reading %></td>
+    <td><%= link_to 'Edit', edit_kanji_reading_path(kanji_reading) %></td>
+    <td><%= link_to 'Destroy', kanji_reading, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New kanji_reading', new_kanji_reading_path %>

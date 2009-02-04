@@ -1,0 +1,22 @@
+<h1>Listing nanori_readings</h1>
+
+<table>
+  <tr>
+    <th>Reading</th>
+    <th>Kanji</th>
+  </tr>
+
+<% for nanori_reading in @nanori_readings %>
+  <tr>
+    <td><%=h nanori_reading.reading %></td>
+    <td><%=h nanori_reading.kanji %></td>
+    <td><%= link_to 'Show', nanori_reading %></td>
+    <td><%= link_to 'Edit', edit_nanori_reading_path(nanori_reading) %></td>
+    <td><%= link_to 'Destroy', nanori_reading, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New nanori_reading', new_nanori_reading_path %>

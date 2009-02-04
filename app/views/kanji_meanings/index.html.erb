@@ -1,0 +1,22 @@
+<h1>Listing kanji_meanings</h1>
+
+<table>
+  <tr>
+    <th>Meaning</th>
+    <th>Kanji</th>
+  </tr>
+
+<% for kanji_meaning in @kanji_meanings %>
+  <tr>
+    <td><%=h kanji_meaning.meaning %></td>
+    <td><%=h kanji_meaning.kanji %></td>
+    <td><%= link_to 'Show', kanji_meaning %></td>
+    <td><%= link_to 'Edit', edit_kanji_meaning_path(kanji_meaning) %></td>
+    <td><%= link_to 'Destroy', kanji_meaning, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New kanji_meaning', new_kanji_meaning_path %>

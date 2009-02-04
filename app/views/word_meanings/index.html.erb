@@ -1,0 +1,22 @@
+<h1>Listing word_meanings</h1>
+
+<table>
+  <tr>
+    <th>Meaning</th>
+    <th>Word</th>
+  </tr>
+
+<% for word_meaning in @word_meanings %>
+  <tr>
+    <td><%=h word_meaning.meaning %></td>
+    <td><%=h word_meaning.word %></td>
+    <td><%= link_to 'Show', word_meaning %></td>
+    <td><%= link_to 'Edit', edit_word_meaning_path(word_meaning) %></td>
+    <td><%= link_to 'Destroy', word_meaning, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New word_meaning', new_word_meaning_path %>

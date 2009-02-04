@@ -1,0 +1,28 @@
+<p>
+  <b>Character:</b>
+  <%=h @kanji.character %>
+</p>
+
+<p>
+  <b>Frequency:</b>
+  <%=h @kanji.frequency %>
+</p>
+
+<p>
+  <b>Stroke count:</b>
+  <%=h @kanji.stroke_count %>
+</p>
+
+<p>
+  <b>Jlpt:</b>
+  <%=h @kanji.jlpt %>
+</p>
+
+<p>
+  <b>Grade:</b>
+  <%=h @kanji.grade %>
+</p>
+
+
+<%= link_to 'Edit', edit_kanji_path(@kanji) %> |
+<%= link_to 'Back', kanjis_path %>

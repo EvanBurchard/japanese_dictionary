@@ -1,0 +1,32 @@
+<h1>Editing kanji</h1>
+
+<% form_for(@kanji) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :character %><br />
+    <%= f.text_field :character %>
+  </p>
+  <p>
+    <%= f.label :frequency %><br />
+    <%= f.text_field :frequency %>
+  </p>
+  <p>
+    <%= f.label :stroke_count %><br />
+    <%= f.text_field :stroke_count %>
+  </p>
+  <p>
+    <%= f.label :jlpt %><br />
+    <%= f.text_field :jlpt %>
+  </p>
+  <p>
+    <%= f.label :grade %><br />
+    <%= f.text_field :grade %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @kanji %> |
+<%= link_to 'Back', kanjis_path %>

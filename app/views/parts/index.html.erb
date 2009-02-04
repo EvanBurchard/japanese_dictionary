@@ -1,0 +1,22 @@
+<h1>Listing parts</h1>
+
+<table>
+  <tr>
+    <th>Pos</th>
+    <th>Word</th>
+  </tr>
+
+<% for part in @parts %>
+  <tr>
+    <td><%=h part.pos %></td>
+    <td><%=h part.word %></td>
+    <td><%= link_to 'Show', part %></td>
+    <td><%= link_to 'Edit', edit_part_path(part) %></td>
+    <td><%= link_to 'Destroy', part, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New part', new_part_path %>

@@ -1,0 +1,13 @@
+<p>
+  <b>Reading:</b>
+  <%=h @kana_reading.reading %>
+</p>
+
+<p>
+  <b>Word:</b>
+  <%=h @kana_reading.word %>
+</p>
+
+
+<%= link_to 'Edit', edit_kana_reading_path(@kana_reading) %> |
+<%= link_to 'Back', kana_readings_path %>

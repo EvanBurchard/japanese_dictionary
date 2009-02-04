@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  character: MyString
+  frequency: 1
+  stroke_count: 1
+  jlpt: 1
+  grade: 1
+
+two:
+  character: MyString
+  frequency: 1
+  stroke_count: 1
+  jlpt: 1
+  grade: 1

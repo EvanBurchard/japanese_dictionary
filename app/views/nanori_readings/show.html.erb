@@ -1,0 +1,13 @@
+<p>
+  <b>Reading:</b>
+  <%=h @nanori_reading.reading %>
+</p>
+
+<p>
+  <b>Kanji:</b>
+  <%=h @nanori_reading.kanji %>
+</p>
+
+
+<%= link_to 'Edit', edit_nanori_reading_path(@nanori_reading) %> |
+<%= link_to 'Back', nanori_readings_path %>

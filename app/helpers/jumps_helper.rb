@@ -1,0 +1,2 @@
+module JumpsHelper
+end

@@ -1,0 +1,13 @@
+<p>
+  <b>Reading:</b>
+  <%=h @on_reading.reading %>
+</p>
+
+<p>
+  <b>Kanji:</b>
+  <%=h @on_reading.kanji %>
+</p>
+
+
+<%= link_to 'Edit', edit_on_reading_path(@on_reading) %> |
+<%= link_to 'Back', on_readings_path %>

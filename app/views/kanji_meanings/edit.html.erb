@@ -1,0 +1,20 @@
+<h1>Editing kanji_meaning</h1>
+
+<% form_for(@kanji_meaning) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :meaning %><br />
+    <%= f.text_field :meaning %>
+  </p>
+  <p>
+    <%= f.label :kanji %><br />
+    <%= f.text_field :kanji %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @kanji_meaning %> |
+<%= link_to 'Back', kanji_meanings_path %>

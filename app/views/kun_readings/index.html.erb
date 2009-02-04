@@ -1,0 +1,22 @@
+<h1>Listing kun_readings</h1>
+
+<table>
+  <tr>
+    <th>Reading</th>
+    <th>Kanji</th>
+  </tr>
+
+<% for kun_reading in @kun_readings %>
+  <tr>
+    <td><%=h kun_reading.reading %></td>
+    <td><%=h kun_reading.kanji %></td>
+    <td><%= link_to 'Show', kun_reading %></td>
+    <td><%= link_to 'Edit', edit_kun_reading_path(kun_reading) %></td>
+    <td><%= link_to 'Destroy', kun_reading, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New kun_reading', new_kun_reading_path %>

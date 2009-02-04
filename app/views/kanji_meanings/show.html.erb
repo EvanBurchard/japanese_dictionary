@@ -1,0 +1,13 @@
+<p>
+  <b>Meaning:</b>
+  <%=h @kanji_meaning.meaning %>
+</p>
+
+<p>
+  <b>Kanji:</b>
+  <%=h @kanji_meaning.kanji %>
+</p>
+
+
+<%= link_to 'Edit', edit_kanji_meaning_path(@kanji_meaning) %> |
+<%= link_to 'Back', kanji_meanings_path %>
