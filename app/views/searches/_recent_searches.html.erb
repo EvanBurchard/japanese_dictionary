@@ -1,0 +1,8 @@
+<br />
+<% if !@recent.blank? %>
+<b>Recently Searched:</b>
+<% @recent.each do |s| %>
+<br />
+<%=link_to h(s.query), search_path(s) %>
+<% end %>
+<% end %>

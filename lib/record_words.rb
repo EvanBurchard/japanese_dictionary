@@ -83,7 +83,7 @@ class Listener
         #search each character in the db if char is legit kanji add jump to kr
         @@kanjis.each do |k, v|
           if Kanji.first(:conditions => {:character => k}) then
-            @@jump = Jump.new(:kanji => Kanji.first(:conditions => {:character => k}), :jump_strength => v)
+            @@jump = Jump.new(:kanji => Kanji.first(:conditions => {:character => k}), :jump_quotient => v)
             if !@@jump.kanji.nil?  then
               @@kr.jumps << @@jump
               puts @@kr.jumps
@@ -121,4 +121,6 @@ end
 
 listener = Listener.new
 parser = Parsers::StreamParser.new(File.new("JMdict_e.xml"), listener)
+start_time = Time.now
 parser.parse
+puts Time.now - start_time

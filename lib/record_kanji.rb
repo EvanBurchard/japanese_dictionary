@@ -14,7 +14,7 @@ ActiveRecord::Base.establish_connection(
 
 class Kanji < ActiveRecord::Base
   has_many :jumps
-  has_many :words, :through => :jumps
+  has_many :kanji_readings, :through => :jumps
   has_many :kun_readings
   has_many :on_readings
   has_many :nanori_readings

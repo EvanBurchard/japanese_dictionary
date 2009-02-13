@@ -1,28 +1,72 @@
+<%= render :partial => 'search_box' %>
+
+ <span id="kanji_entry"><%=h @kanji.character %></span>
+
+  <% @kanji.kanji_meanings.each do |m| %>
+  <%=h m.meaning %>
+  <% end %>
+
+
 <p>
-  <b>Character:</b>
-  <%=h @kanji.character %>
+  <% if !@kanji.on_readings[0].blank? %>
+  <b>On:</b>
+  <% @kanji.on_readings.each do |r| %>
+  <%=h r.reading %>
+  <% end %>  
+  <% end %>  
+
+  <% if !@kanji.kun_readings[0].blank? %>
+  <b>Kun:</b>
+  <% @kanji.kun_readings.each do |r| %>
+  <%=h r.reading %>
+  <% end %>
+  <% end %>
+
+  <% if !@kanji.nanori_readings[0].blank? %> 
+  <b>Nanori:</b>
+  <% @kanji.nanori_readings.each do |r| %>
+  <%=h r.reading %>
+  <% end %>
+  <% end %>
+
 </p>
 
+<% if !@kanji.frequency.blank? %>
 <p>
   <b>Frequency:</b>
   <%=h @kanji.frequency %>
 </p>
+<% end %>
 
+<% if !@kanji.stroke_count.blank? %>
 <p>
   <b>Stroke count:</b>
   <%=h @kanji.stroke_count %>
 </p>
+<% end %>
 
+<% if !@kanji.jlpt.blank? %>
 <p>
-  <b>Jlpt:</b>
+  <b>JLPT Level:</b>
   <%=h @kanji.jlpt %>
 </p>
+<% end %>
 
+<% if !@kanji.grade.blank? %>
 <p>
   <b>Grade:</b>
   <%=h @kanji.grade %>
 </p>
+<% end %>
 
 
-<%= link_to 'Edit', edit_kanji_path(@kanji) %> |
-<%= link_to 'Back', kanjis_path %>
+<p>
+  <b>Related Words:</b>
+  <% @kanji_readings.each do |r| %>
+  <%= link_to r.reading, word_path(r.word) %>
+  <% end %>
+</p>
+
+
+
+

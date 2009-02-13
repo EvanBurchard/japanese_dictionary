@@ -1,2 +1,3 @@
-class WordMeaning < ActiveRecord::Base
+class WordMeaning < ActiveRecord::Base  
+  belongs_to :word
 end

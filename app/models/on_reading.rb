@@ -1,2 +1,3 @@
-class OnReading < ActiveRecord::Base
+class OnReading < ActiveRecord::Base  
+  belongs_to :kanji
 end

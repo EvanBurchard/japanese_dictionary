@@ -1,2 +1,3 @@
-class Part < ActiveRecord::Base
+class Part < ActiveRecord::Base  
+  belongs_to :word
 end

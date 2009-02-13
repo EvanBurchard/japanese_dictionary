@@ -1,0 +1,6 @@
+
+<% form_for :search, @search, :url => { :action => "create" } do |f| %>
+  <%= f.text_field :query %>
+  <%= f.submit "Search" %>
+<% end %>
+

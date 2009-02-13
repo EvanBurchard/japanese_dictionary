@@ -1,0 +1,8 @@
+<%= render :partial => 'search_box' %>
+<% if @result.class==Kanji %>
+<%= render :partial => 'kanji_result' %>
+<% elsif @result.class==Array%>
+<%= render :partial => 'word_result'%>
+<% else%>
+<%= render :partial => 'nil_result'%>
+<% end %>

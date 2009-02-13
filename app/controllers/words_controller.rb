@@ -14,10 +14,11 @@ class WordsController < ApplicationController
   # GET /words/1.xml
   def show
     @word = Word.find(params[:id])
-
+    @kanji_in_readings = @word.kanji_in_readings
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @word }
+
     end
   end
 
@@ -76,7 +77,6 @@ class WordsController < ApplicationController
   def destroy
     @word = Word.find(params[:id])
     @word.destroy
-
     respond_to do |format|
       format.html { redirect_to(words_url) }
       format.xml  { head :ok }

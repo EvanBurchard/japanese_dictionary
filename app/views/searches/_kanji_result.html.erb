@@ -1,0 +1,67 @@
+  <span id="kanji_entry"><%=h @result.character %></span>
+
+  <% @result.kanji_meanings.each do |m| %>
+  <%=h m.meaning %>
+  <% end %>
+
+
+<p>
+  <% if !@result.on_readings[0].blank? %>
+  <b>On:</b>
+  <% @result.on_readings.each do |r| %>
+  <%=h r.reading %>
+  <% end %>  
+  <% end %>  
+
+  <% if !@result.kun_readings[0].blank? %>
+  <b>Kun:</b>
+  <% @result.kun_readings.each do |r| %>
+  <%=h r.reading %>
+  <% end %>
+  <% end %>
+
+  <% if !@result.nanori_readings[0].blank? %> 
+  <b>Nanori:</b>
+  <% @result.nanori_readings.each do |r| %>
+  <%=h r.reading %>
+  <% end %>
+  <% end %>
+
+</p>
+
+<% if !@result.frequency.blank? %>
+<p>
+  <b>Frequency:</b>
+  <%=h @result.frequency %>
+</p>
+<% end %>
+
+<% if !@result.stroke_count.blank? %>
+<p>
+  <b>Stroke count:</b>
+  <%=h @result.stroke_count %>
+</p>
+<% end %>
+
+<% if !@result.jlpt.blank? %>
+<p>
+  <b>JLPT Level:</b>
+  <%=h @result.jlpt %>
+</p>
+<% end %>
+
+<% if !@result.grade.blank? %>
+<p>
+  <b>Grade:</b>
+  <%=h @result.grade %>
+</p>
+<% end %>
+
+
+<p>
+  <b>Related Words:</b>
+  <% @kanji_readings.each do |r| %>
+  <%= link_to r.reading, word_path(r.word) %>
+  <% end %>
+</p>
+
