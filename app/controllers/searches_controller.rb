@@ -17,13 +17,6 @@ class SearchesController < ApplicationController
     @result = @search.search_by_query
     if @result.class==Kanji
       @kanji_readings = @result.get_sorted_readings
-    elsif @result.class==Array
-      @kanji_in_readings = []
-      @result.each do |r|
-        @kanji_in_readings += r.kanji_in_readings
-      end
-      @kanji_in_readings.uniq!
-    else
     end
      respond_to do |format|
       format.html # show.html.erb

@@ -49,19 +49,11 @@ end
 
 
 def search_english
-  perfect_match = WordMeaning.all(:conditions => {:meaning => query})
-  w_m = WordMeaning.find(:all, :conditions => ["word_meanings.meaning LIKE ?", "%#{query}%"], :limit => 20)
+  perfect_match = WordMeaning.all(:conditions => {:meaning => query}, :include => [{:word => :kanji_readings}, {:word => :kana_readings}, {:word => :parts},{:word => :word_meanings}, :word])
+  w_m = WordMeaning.find(:all, :conditions => ["word_meanings.meaning LIKE ?", "%#{query}%"], :include => [{:word => :kanji_readings}, {:word => :kana_readings}, {:word => :parts},{:word => :word_meanings}], :limit => 100)
   if !w_m.blank? then
-    words = w_m.map do |wm|
-      wm.word
-    end
-    if !perfect_match[0].blank? and !perfect_match[0].word.blank? then 
-      perfect_match.each do |m|
-        words.insert(0, m.word)
-      end
-    end
-    words.compact
-    words.uniq
+    w_m.compact
+    w_m.uniq
   else
     nil
   end
@@ -69,40 +61,22 @@ end
 
 
 def search_kanji_readings
-  perfect_match = KanjiReading.all(:conditions => {:reading => query}, :include => :word)
-  kanji_r = KanjiReading.all(:conditions => (["kanji_readings.reading LIKE ?", "%#{query}%"]), :order => "reading", :include => :word)
+  perfect_match = KanjiReading.all(:conditions => {:reading => query}, :include => [{:word => :kanji_readings}, {:word => :kana_readings}, {:word => :parts},{:word => :word_meanings}, :word])
+  kanji_r = KanjiReading.all(:conditions => (["kanji_readings.reading LIKE ?", "%#{query}%"]), :order => "reading", :include => [{:word => :kanji_readings}, {:word => :kana_readings}, {:word => :parts},{:word => :word_meanings}, :word], :limit => 100)
   if !kanji_r.blank? then
-    kanji_r.sort
-    words = kanji_r.map do |kr|
-      kr.word
-    end
-    if !perfect_match[0].blank? and !perfect_match[0].word.blank? then 
-      perfect_match.each do |m|
-        words.insert(0, m.word)
-      end
-    end
-    words.compact
-    words.uniq
+    kanji_r.compact
+    kanji_r.uniq
   else
     nil
   end
 end
 
 def search_kana_readings
-  perfect_match = KanaReading.all(:conditions => {:reading => query})
-  kana_r = KanaReading.all(:conditions => (["kana_readings.reading LIKE ?", "%#{query}%"]), :order => "reading")
+  perfect_match = KanaReading.all(:conditions => {:reading => query}, :include => [{:word => :kanji_readings}, {:word => :kana_readings}, {:word => :parts},{:word => :word_meanings}, :word])
+  kana_r = KanaReading.all(:conditions => (["kana_readings.reading LIKE ?", "%#{query}%"]), :order => "reading", :include => [{:word => :kanji_readings}, {:word => :kana_readings}, {:word => :parts},{:word => :word_meanings}, :word], :limit => 100)
   if !kana_r.blank? then
-    kana_r.sort
-    words = kana_r.map do |kr|
-      kr.word
-    end
-    if !perfect_match[0].blank? and !perfect_match[0].word.blank? then 
-      perfect_match.each do |m|
-        words.insert(0, m.word)
-      end
-    end
-    words.compact
-    words.uniq
+    kana_r.compact
+    kana_r.uniq
   else
     nil
   end

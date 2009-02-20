@@ -1,39 +1,29 @@
 <% @result.each do |result| %>
 
   <div>
-  <% result.kanji_readings.each do |kr| %>
+  <% result.word.kanji_readings.each do |kr| %>
   <% kr.reading.each do |r|  %>
-  <%=link_to r, kr.word %>
+  <%=link_to r, result.word %>
   <% end %>
   <% end %>
 
-  <% result.kana_readings.each do |kr| %>
+  <% result.word.kana_readings.each do |kr| %>
   <%= "(" %>
   <% kr.reading.each do |r|  %>
-  <%=link_to r, kr.word %>
+  <%=link_to r, result.word %>
   <% end %>
   <%= ")" %>
   <% end %>
 
-  <% result.parts.each do |p| %>
+  <% result.word.parts.each do |p| %>
   <%=h p.pos %>
   <% end %>
 
-  <% result.word_meanings.each do |m| %>
+  <% result.word.word_meanings.each do |m| %>
   <%=h m.meaning %>
   <% end %>
 
   </div>
 <% end %>
-<p>
-  <div class="small_kanji">
-  <% @kanji_in_readings.each do |kir| %>
-  <div>
-  <%=link_to kir, kanji_path(Kanji.find_by_character(kir)) %>
-  </div>
-  <% end %>
-  </div>
-
-</p>
 
 

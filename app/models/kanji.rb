@@ -7,11 +7,10 @@ class Kanji < ActiveRecord::Base
   has_many :kanji_meanings
 
   def get_sorted_readings
-    jumps = Jump.all(:conditions => {:kanji_id => self}, :order => "jump_quotient DESC", :include => :kanji_reading)
-    jumps.map! do |j|
+    jumps = Jump.all(:conditions => {:kanji_id => self}, :order => "jump_quotient DESC", :include => {:kanji_reading => :word})
+    readings = jumps.map do |j|
       j.kanji_reading
     end
-    jumps.uniq
+    readings.uniq
   end
-
 end
