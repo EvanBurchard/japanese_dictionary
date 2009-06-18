@@ -5,7 +5,6 @@ development:
   pool: 5
   username: root
   password:
-  socket: /var/run/mysqld/mysqld.sock
 
 test:
   adapter: mysql
@@ -14,7 +13,6 @@ test:
   pool: 5
   username: root
   password:
-  socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql
@@ -23,4 +21,3 @@ production:
   pool: 5
   username: root
   password: 
-  socket: /var/run/mysqld/mysqld.sock
